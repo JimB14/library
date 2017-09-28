@@ -34,7 +34,7 @@ exports.index = function(req, res, next) {
       // },
    }, function(err, results){
       if(err){
-         console.log(err);
+         // console.log(err);
          return next(err);
       } else {
          res.render('home/', {
