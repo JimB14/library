@@ -17,7 +17,7 @@ var wiki = require('./routes/wiki');
 
 var app = express();
 
-const port = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
 
 // set up default connection
 // var url = 'mongodb://localhost/library';
@@ -95,7 +95,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(port, function(){
+app.listen(PORT, function(){
    console.log(`Server running on port ${port}`);
 })
 
