@@ -3,7 +3,7 @@
 var Book         = require('../models/book');
 var Author       = require('../models/author');
 var Genre        = require('../models/genre');
-var BookInstance = require('../models/bookinstance');
+var BookInstance = require('../models/bookInstance');
 
 var async = require('async');
 
