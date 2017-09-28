@@ -1,6 +1,6 @@
 // bookInstanceController.js - bookInstance controller module
 var expressValidator = require('express-validator');
-var BookInstance = require('../models/bookinstance');
+var BookInstance = require('../models/bookInstance');
 var Book = require('../models/book');
 
 
