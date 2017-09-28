@@ -16,38 +16,34 @@ exports.index = function(req, res, next) {
    // Note: The callback function from async.parallel() above is a little unusual
    // in that we render the page whether or not there was an error (normally you
    // might use a separate execution path for handling the display of errors).
-   // async.parallel({
-   //    book_count: function(callback){
-   //       Book.count(callback);
-   //    },
-   //    book_instance_count: function(callback){
-   //       BookInstance.count(callback);
-   //    },
-   //    book_instance_available_count: function(callback){
-   //       BookInstance.count({status: 'Available'}, callback);
-   //    },
-   //    author_count: function(callback){
-   //       Author.count(callback);
-   //    },
-   //    genre_count: function(callback){
-   //       Genre.count(callback);
-   //    },
-   // }, function(err, results){
-   //    if(err){
-   //       console.log(err);
-   //       return next(err);
-   //    } else {
-   //       res.render('home/', {
-   //          title: 'Local Library Home',
-   //          error: err,
-   //          data: results,
-   //          success: false
-   //       });
-   //    }
-   // });
-
-   res.render('home/', {
-      title: 'Local Library Home',
+   async.parallel({
+      book_count: function(callback){
+         Book.count(callback);
+      },
+      book_instance_count: function(callback){
+         BookInstance.count(callback);
+      },
+      book_instance_available_count: function(callback){
+         BookInstance.count({status: 'Available'}, callback);
+      },
+      author_count: function(callback){
+         Author.count(callback);
+      },
+      genre_count: function(callback){
+         Genre.count(callback);
+      },
+   }, function(err, results){
+      if(err){
+         console.log(err);
+         return next(err);
+      } else {
+         res.render('home/', {
+            title: 'Local Library Home',
+            error: err,
+            data: results,
+            success: false
+         });
+      }
    });
 };
 
