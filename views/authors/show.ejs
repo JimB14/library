@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar-nav %>
+
+      <div class="col-sm-9">
+
+         <h1><%= title %> <%= author.name %></h1>
+         <% if(author.date_of_birth){ %>
+            <p>(<%= author.date_of_birth_formatted %> - <%= author.date_of_death_formatted %>)</p>
+         <% } %>
+
+
+         <div style="margin: 20px 0px 0px 20px;">
+            <h4>Books</h4>
+
+            <dl class="dl-list">
+               <% if(authors_books.length > 0){ %>
+                  <% authors_books.forEach(function(book){ %>
+                     <dt>
+                        <a href="<%= book.url %>"><%= book.title %></a>
+                     </dt>
+                     <dd>
+                        <%= book.summary %>
+                     </dd>
+                  <% }) %>
+               <% } else { %>
+                     <p>This author has no books.</p>
+               <% } %>
+            </dl>
+
+         </div>
+         <hr>
+         <p>
+            <a class="btn btn-success" href="<%= `${author.url}/update` %>">Update Author</a>
+            <span style="padding-left: 20px;">
+               <a class="btn btn-danger" href="<%= `${author.url}/delete` %>">Delete Author</a>
+            </span>
+         </p>
+      </div>
+
+   </div>
+</div>
+
+<% include ../partials/footer %>

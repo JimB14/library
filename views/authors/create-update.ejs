@@ -1,0 +1,52 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar-nav %>
+
+      <div class="col-sm-9">
+
+         <h1><%- title %></h1>
+         <div class="col-sm-12">
+            <form action="" method="post" class="form-horizontal">
+
+               <% include ../partials/errors %>
+
+               <div class="form-group">
+                  <label for="first_name">First name </label>
+                  <input id="first_name" type="text" name="first_name"
+                     class="form-control" value="<%= (typeof author === 'undefined') ? '' : author.first_name %>"
+                     placeholder="First name" autofocus>
+               </div>
+               <div class="form-group">
+                  <label for="family_name">Last name </label>
+                  <input id="family_name" type="text" name="family_name"
+                     class="form-control" value="<%= (typeof author === 'undefined') ? '' : author.family_name %>"
+                     placeholder="Last name" >
+               </div>
+               <div class="form-group">
+                  <label for="date_of_birth">Date of birth </label>
+                  <input id="date_of_birth" type="date" name="date_of_birth"
+                     class="form-control" value="<%= (typeof author === 'undefined') ? '' : author.date_of_birth_update_format %>"
+                     placeholder="mm/dd/yyyy">
+               </div>
+               <div class="form-group">
+                  <label for="date_of_death">Date of death </label>
+                  <input id="date_of_death" type="date" name="date_of_death"
+                     class="form-control" value="<%= (typeof author === 'undefined') ? '' : author.date_of_death_update_format %>"
+                     placeholder="mm/dd/yyyy">
+               </div>
+
+               <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
+            </form>
+
+         </div>
+
+      </div>
+
+
+
+   </div><!-- // row  -->
+</div><!-- // container  -->
+
+<% include ../partials/footer %>

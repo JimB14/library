@@ -1,0 +1,103 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar-nav %>
+
+      <div class="col-sm-9">
+
+         <h1><%= title %></h1>
+         <div class="col-sm-12">
+
+            <% include ../partials/errors %>
+
+            <form action="" method="post" class="form-horizontal">
+
+               <div class="form-group">
+                  <label for="title">Title </label>
+                  <input
+                     id="title"
+                     type="text"
+                     name="title"
+                     class="form-control"
+                     value="<%= (typeof book === 'undefined') ? '' : book.title %>"
+                     placeholder="Title"
+                     required="true"
+                     autofocus
+                  >
+               </div>
+
+               <div class="form-group">
+                  <label for="author">Author</label>
+                  <select id="author" type="select" name="author"
+                     class="form-control" placeholder="Select author">
+                     <option value="">Select</option>
+                     <% authors.forEach(function(author){ %>
+                        <% if(typeof book === 'undefined'){ %>
+                           <option value="<%= author._id %>"><%= author.name %></option>
+                        <% } else { %>
+                           <option value="<%= author._id %>" <% if(author._id.toString() == book.author._id || author._id.toString() == book.author){%> selected <%}%> ><%= author.name %></option>
+                           <!-- <option value="<%= author._id %>" <% (author._id.toString() == book.author._id || author._id.toString() == book.author) ? 'selected' : '' %>><%= author.name %></option> -->
+                        <% } %>
+                     <% }); %>
+                  </select>
+               </div>
+
+               <div class="form-group">
+                  <label for="summary">Summary</label>
+                  <input
+                     id="summary"
+                     type="text"
+                     name="summary"
+                     class="form-control"
+                     value="<%= (typeof book === 'undefined') ? '' : book.summary %>"
+                     placeholder="Summary"
+                     required="true"
+                  >
+               </div>
+
+               <div class="form-group">
+                  <label for="isbn">ISBN</label>
+                  <input
+                     id="isbn"
+                     type="text"
+                     name="isbn"
+                     class="form-control"
+                     value="<%= (typeof book === 'undefined') ? '' : book.isbn %>"
+                     placeholder="ISBN"
+                     required="true"
+                  >
+               </div>
+
+               <div class="form-group">
+                  <label>Genre</label>
+                  <div>
+                     <% genres.forEach(function(genre){ %>
+                        <div style="display: inline; padding-right: 10px;">
+                           <input
+                              type="checkbox"
+                              name="genre"
+                              id="<%= genre._id %>"
+                              value="<%= genre._id %>"
+                              <% if(genre.checked){%> checked="<%= genre.checked %>" <%}else{%>= <%}%>
+                           >
+                           <label for="<%= genre._id %>"><%= genre.name %>
+                        </div>
+                     <% }); %>
+                  </div>
+               </div>
+
+               <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
+
+            </form>
+
+         </div>
+
+      </div>
+
+
+
+   </div><!-- // row  -->
+</div><!-- // container  -->
+
+<% include ../partials/footer %>

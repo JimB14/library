@@ -1,0 +1,35 @@
+body {
+  padding: 20px 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  line-height: 1.7em;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li,
+.dynamic-content-ul li {
+   line-height: 1.9em;
+}
+.dl-list {
+
+}
+.dl-list dd {
+   line-height: 1.7em;
+   margin-bottom: 1em;
+}
+
+.sidebar-nav hr {
+   margin: 15px 0px;
+   margin-right: 50%;
+}
+.text-bold {
+   font-weight: bold;
+}

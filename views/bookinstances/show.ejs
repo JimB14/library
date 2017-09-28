@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar-nav %>
+
+      <div class="col-sm-9">
+
+         <h2><%= title %><%= bookinstance._id %></h2>
+
+         <p>
+            <strong>Title:</strong>
+            <a href="<%= bookinstance.book.url %>"><%= bookinstance.book.title %></a>
+         </p>
+         <p><strong>Imprint:</strong> <%= bookinstance.imprint %></p>
+         <p>
+            <strong>Status:</strong>
+            <% if(bookinstance.status === 'Available'){ %>
+               <span class="text-success text-bold">
+                  <%= bookinstance.status %>
+               </span>
+            <% } else if(bookinstance.status === 'Maintenance'){ %>
+               <span class="text-danger text-bold">
+                  <%= bookinstance.status %>
+               </span>
+            <% } else { %>
+               <span class="text-warning text-bold">
+                  <%= bookinstance.status %>
+               </span>
+            <% } %>
+         </p>
+         <% if(bookinstance.status != 'Available'){ %>
+            <p><strong>Due back:</strong> <%= bookinstance.due_back_formatted %></p>
+         <% } %>
+
+         <p>
+            <a class="btn btn-success" href="<%= `${bookinstance.url}/update` %>">Update Instance</a>
+            <span style="padding-left: 20px;">
+               <a class="btn btn-danger" href="<%= `${bookinstance.url}/delete` %>">Delete Instance</a>
+            </span>
+         </p>
+
+      </div>
+
+   </div>
+</div>
+
+<% include ../partials/footer %>

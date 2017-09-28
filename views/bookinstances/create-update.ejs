@@ -1,0 +1,75 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar-nav %>
+
+      <div class="col-sm-9">
+
+         <h1><%= title %></h1>
+         <div class="col-sm-12">
+
+            <% include ../partials/errors %>
+
+            <form action="" method="post" class="form-horizontal">
+               <div class="form-group">
+                  <label for="book">Book</label>
+                  <select id="book" type="select" name="book"
+                     class="form-control" autofocus>
+                     <% books.forEach(function(book){ %>
+                        <% if(typeof bookinstance === 'undefined'){ %>
+                           <option value="<%= book._id %>"><%= book.title %></option>
+                        <% } else { %>
+                           <option value="book._id" selected="<% if( bookinstance.book.toString() === book._id.toString() ){%> selected <%} else {%> false <%}%>" ><%= book.title %></option>
+                        <% } %>
+                     <% }); %>
+                  </select>
+               </div>
+
+               <div class="form-group">
+                  <label for="imprint">Imprint </label>
+                  <input
+                     id="imprint"
+                     type="text"
+                     name="imprint"
+                     class="form-control"
+                     value="<% (typeof bookinstance ==='undefined') ? '' : bookinstance.imprint %>"
+                     placeholder="Publisher and date info"
+
+                  >
+               </div>
+
+               <div class="form-group">
+                  <label for="title">Date when book available </label>
+                  <input
+                     id="due_back"
+                     type="date"
+                     name="due_back"
+                     class="form-control"
+                     value="<% (typeof bookinstance ==='undefined') ? '' : bookinstance.due_back %>"
+                     placeholder="Click triangle for calendar"
+                  >
+               </div>
+
+               <div class="form-group">
+                  <label for="title">Status </label>
+                  <select id="status" type="select" name="status" class="form-control" required>
+                     <option value="">Select status</option>
+                     <option <% if(typeof bookinstance==='undefined'){%> <%} if(typeof bookinstance === 'object' && bookinstance.status === 'Available'){%> selected <%}%> value="Available">Available</option>
+                     <option <% if(typeof bookinstance==='undefined'){%> <%} if(typeof bookinstance === 'object' && bookinstance.status === 'Loaned'){%> selected <%}%> value="Loaned">Loaned</option>
+                     <option <% if(typeof bookinstance==='undefined'){%> <%} if(typeof bookinstance === 'object' && bookinstance.status === 'Reserved'){%> selected <%}%> value="Reserved">Reserved</option>
+                  </select>
+               </div>
+
+               <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
+            </form>
+         </div>
+
+      </div>
+
+
+
+   </div><!-- // row  -->
+</div><!-- // container  -->
+
+<% include ../partials/footer %>

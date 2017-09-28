@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+
+<% include ../partials/sidebar-nav %>
+
+      <div class="col-sm-9">
+
+         <h1><%= title %> <%= genre.name %></h1>
+
+         <h4>Books</h4>
+
+         <dl class="dl-list">
+            <% if(genre_books.length > 0) { %>
+               <% genre_books.forEach(function(book){ %>
+                  <dt>
+                     <a href="<%= book.url %>"><%= book.title %></a>
+                  </dt>
+                  <dd>
+                     <%= book.summary %>
+                  </dd>
+               <% }); %>
+            <% } else { %>
+                  <p>Currently, there are no books in this genre.</p>
+            <% } %>
+         </dl>
+
+         <p>
+            <a class="btn btn-success" href="<%= `${genre.url}/update` %>">Update Genre</a>
+            <span style="padding-left: 20px;">
+               <a class="btn btn-danger" href="<%= `${genre.url}/delete` %>">Delete Genre</a>
+            </span>
+         </p>
+
+      </div>
+
+   </div>
+</div>
+
+<% include ../partials/footer %>
