@@ -11,10 +11,10 @@ var async = require('async');
 exports.index = function(req, res, next) {
 
    res.render('home/', {
-      title: 'Local Library Home',
-      error: err,
-      data: results,
-      success: false
+      title: 'Local Library Home'
+      // error: err,
+      // data: results,
+      // success: false
    });
    // return;
 
