@@ -13,21 +13,15 @@ var helmet           = require('helmet');
 var index   = require('./routes/index');
 var users   = require('./routes/users');
 var catalog = require('./routes/catalog');
-
 var wiki = require('./routes/wiki');
-
-// models
-// var Author       = require('./models/author');
-// var Book         = require('./models/book');
-// var BookInstance = require('./models/bookInstance');
-// var Genre        = require('./models/genre');
 
 var app = express();
 
 const port = process.env.PORT || 4000;
 
-// set up defaul connection
+// set up default connection
 var url = 'mongodb://localhost/library';
+var url = process.env.MONGODB_URI || 'mongodb://jburns14:Hopehope1!@ds155684.mlab.com:55684/library';
 mongoose.connect(url);
 
 // get the default connectiotn
