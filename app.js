@@ -13,7 +13,7 @@ var helmet           = require('helmet');
 var index   = require('./routes/index');
 var users   = require('./routes/users');
 var catalog = require('./routes/catalog');
-var wiki = require('./routes/wiki');
+// var wiki = require('./routes/wiki');
 
 var app = express();
 
@@ -73,7 +73,7 @@ app.use(helmet());
 app.use('/', index);
 app.use('/users', users);
 app.use('/catalog', catalog);
-app.use('/wiki', wiki);
+// app.use('/wiki', wiki);
 
 
 // catch 404 and forward to error handler
