@@ -176,13 +176,13 @@ function createBookInstances(cb) {
           bookInstanceCreate(books[2], ' Gollancz, 2015.', false, false, callback)
         },
         function(callback) {
-          bookInstanceCreate(books[3], 'New York Tom Doherty Associates, 2016.', false, 'Available', callback)
+          bookInstanceCreate(books[3], 'New York, Tom Doherty Associates, 2016.', false, 'Available', callback)
         },
         function(callback) {
-          bookInstanceCreate(books[3], 'New York Tom Doherty Associates, 2016.', false, 'Available', callback)
+          bookInstanceCreate(books[3], 'New York, Tom Doherty Associates, 2016.', false, 'Available', callback)
         },
         function(callback) {
-          bookInstanceCreate(books[3], 'New York Tom Doherty Associates, 2016.', false, 'Available', callback)
+          bookInstanceCreate(books[3], 'New York, Tom Doherty Associates, 2016.', false, 'Available', callback)
         },
         function(callback) {
           bookInstanceCreate(books[4], 'New York, NY Tom Doherty Associates, LLC, 2015.', false, 'Available', callback)
