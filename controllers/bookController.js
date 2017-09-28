@@ -10,49 +10,41 @@ var async = require('async');
 
 exports.index = function(req, res, next) {
 
-   res.render('home/', {
-      title: 'Local Library Home'
-      // error: err,
-      // data: results,
-      // success: false
-   });
-   // return;
-
    // http://caolan.github.io/async/docs.html#parallel
    // parallel - all functions started at the same time, when all completed,
    // argument 2 (final callback - res.render()) is invoked (render view)
    // Note: The callback function from async.parallel() above is a little unusual
    // in that we render the page whether or not there was an error (normally you
    // might use a separate execution path for handling the display of errors).
-   // async.parallel({
-   //    book_count: function(callback){
-   //       Book.count(callback);
-   //    },
-   //    book_instance_count: function(callback){
-   //       BookInstance.count(callback);
-   //    },
-   //    book_instance_available_count: function(callback){
-   //       BookInstance.count({status: 'Available'}, callback);
-   //    },
-   //    author_count: function(callback){
-   //       Author.count(callback);
-   //    },
-   //    genre_count: function(callback){
-   //       Genre.count(callback);
-   //    },
-   // }, function(err, results){
-   //    if(err){
-   //       console.log(err);
-   //       return next(err);
-   //    } else {
-   //       res.render('home/', {
-   //          title: 'Local Library Home',
-   //          error: err,
-   //          data: results,
-   //          success: false
-   //       });
-   //    }
-   // });
+   async.parallel({
+      book_count: function(callback){
+         Book.count(callback);
+      },
+      // book_instance_count: function(callback){
+      //    BookInstance.count(callback);
+      // },
+      // book_instance_available_count: function(callback){
+      //    BookInstance.count({status: 'Available'}, callback);
+      // },
+      // author_count: function(callback){
+      //    Author.count(callback);
+      // },
+      // genre_count: function(callback){
+      //    Genre.count(callback);
+      // },
+   }, function(err, results){
+      if(err){
+         console.log(err);
+         return next(err);
+      } else {
+         res.render('home/', {
+            title: 'Local Library Home',
+            error: err,
+            data: results,
+            success: false
+         });
+      }
+   });
 };
 
 
