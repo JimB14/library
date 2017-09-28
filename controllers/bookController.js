@@ -10,6 +10,9 @@ var async = require('async');
 
 exports.index = function(req, res) {
 
+   res.send("Connected!");
+   return;
+
    // http://caolan.github.io/async/docs.html#parallel
    // parallel - all functions started at the same time, when all completed,
    // argument 2 (final callback - res.render()) is invoked (render view)
