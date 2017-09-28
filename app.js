@@ -21,7 +21,7 @@ const port = process.env.PORT || 4000;
 
 // set up default connection
 // var url = 'mongodb://localhost/library';
-var url = process.env.MONGODB_URI || 'mongodb://jburns14:Hopehope1!@ds155684.mlab.com:55684/library';
+var url = process.env.MONGODB_URI || 'mongodb://jburns:123456@ds155684.mlab.com:55684/library';
 mongoose.connect(url);
 
 // get the default connectiotn
