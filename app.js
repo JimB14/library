@@ -8,10 +8,11 @@ var expressValidator = require('express-validator'); // https://www.npmjs.com/pa
 var compression      = require('compression');
 var helmet           = require('helmet');
 
-// config
+// db configurations
 var config = require('./config');
 
-console.log(config.dbConfig);
+// console.log(config.dbConfig);
+// console.log(`mongodb://${config.dbConfig.username}:${config.dbConfig.password}@${config.dbConfig.host}:${config.dbConfig.port}/${config.dbConfig.dbname}`);
 
 // routes
 var index   = require('./routes/index');
@@ -25,9 +26,9 @@ const port = process.env.PORT || 4000;
 
 // setup mongoose connection
 var mongoose = require('mongoose');
-// cannot use @ in password
+// cannot use @ in password (syntax:  mongodb://<dbuser>:<dbpassword>@host:port/dbname)
 var dbUrl = `mongodb://${config.dbConfig.username}:${config.dbConfig.password}@${config.dbConfig.host}:${config.dbConfig.port}/${config.dbConfig.dbname}`;
-var mongoDB = process.env.MONGODB_URI || dbUrl;
+// var mongoDB = process.env.MONGODB_URI || dbUrl;
 mongoose.connect(dbUrl);
 // get the default connectiotn
 var db = mongoose.connection;
