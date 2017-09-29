@@ -153,7 +153,7 @@ exports.author_delete_get = function(req, res) {
       } else {
          // Successful, so render
          res.render('authors/delete', {
-            title: 'Delete Author',
+            title: 'Delete Author: ',
             author: results.author,
             author_books: results.authors_books
          });
@@ -184,7 +184,7 @@ exports.author_delete_post = function(req, res, next) {
       if(results.authors_books.length > 0){
          // author has books; cannot be deleted until books deleted
          res.render('authors/delete', {
-            title: 'Delete Author',
+            title: 'Delete Author: ',
             author: results.author,
             author_books: results.authors_books
          });
