@@ -22,8 +22,8 @@ const port = process.env.PORT || 4000;
 var mongoose = require('mongoose');
 // cannot use @ in password
 var dbUrl = 'mongodb://jburns14:Pa$$w0rd1!@ds155684.mlab.com:55684/library';
-// var mongoDB = process.env.MONGODB_URI || dbUrl;
-// mongoose.connect(mongoDB);
+var mongoDB = process.env.MONGODB_URI || dbUrl;
+mongoose.connect(mongoDB);
 mongoose.connect(dbUrl);
 // get the default connectiotn
 var db = mongoose.connection;
