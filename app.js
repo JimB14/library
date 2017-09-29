@@ -21,10 +21,11 @@ const port = process.env.PORT || 4000;
 // setup mongoose connection
 var mongoose = require('mongoose');
 var dbUrl = 'mongodb://jburns14:P@$$w0rd1!@ds155684.mlab.com:55684/library';
-var mongoDB = process.env.MONGODB_URI || dbUrl;
-mongoose.connect(mongoDB);
+// var mongoDB = process.env.MONGODB_URI || dbUrl;
+// mongoose.connect(mongoDB);
+mongoose.connect(dbUrl);
 // get the default connectiotn
-var db =  mongoose.connection;
+var db = mongoose.connection;
 // bind connection to error event
 db.on('error', console.error.bind(console,'MongoDB connection error'));
 
