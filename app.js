@@ -23,7 +23,7 @@ var mongoose = require('mongoose');
 // cannot use @ in password
 var dbUrl = 'mongodb://jburns14:Pa$$w0rd1!@ds155684.mlab.com:55684/library';
 var mongoDB = process.env.MONGODB_URI || dbUrl;
-mongoose.connect(dbUrl);
+mongoose.connect(mongoDB);
 // get the default connectiotn
 var db = mongoose.connection;
 // bind connection to error event
