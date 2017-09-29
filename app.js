@@ -4,7 +4,6 @@ var path             = require('path');
 var logger           = require('morgan');
 var cookieParser     = require('cookie-parser');
 var bodyParser       = require('body-parser');
-var mongoose         = require('mongoose');
 var expressValidator = require('express-validator'); // https://www.npmjs.com/package/express-validator
 var compression      = require('compression');
 var helmet           = require('helmet');
@@ -19,14 +18,13 @@ var app = express();
 
 const port = process.env.PORT || 4000;
 
-// set up default connection
-// var url = 'mongodb://localhost/library';
-var url = process.env.MONGODB_URI || 'mongodb://jburns14:Hopehope1!@ds155684.mlab.com:55684/library';
-mongoose.connect(url);
-
+// setup mongoose connection
+var mongoose = require('mongoose');
+var dbUrl = 'mongodb://jburns14:Hopehope1!@ds155684.mlab.com:55684/library';
+var mongoDB = process.env.MONGODB_URI || dbUrl;
+mongoose.connect(mongoDB);
 // get the default connectiotn
 var db =  mongoose.connection;
-
 // bind connection to error event
 db.on('error', console.error.bind(console,'MongoDB connection error'));
 
